@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcoTrack AI Scanner 🌍
 
-## Getting Started
+A Progressive Web App (PWA) built for instantaneous, zero-friction carbon footprint tracking. Bridge the gap between abstract climate science and daily human behavior with gamified, actionable steps and AI-powered receipt scanning.
 
-First, run the development server:
+![Deploy with Vercel](https://vercelbadge.vercel.app/api/ashxris/ecotrack-ai-scanner)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Zero-Friction Onboarding:** Instantly calculate your baseline carbon footprint right from your browser—no sign-ups, no cloud databases.
+- **Progressive Web App (PWA):** Install it directly to your home screen for a native app-like experience. Completely functional offline.
+- **Eco-Hub Dashboard:** Track your daily carbon budget with a massive circular progress ring and 1-click quick logs.
+- **Gamified Eco-Challenges:** Check off low-carbon actions (like unplugging standby electronics) to dynamically shrink your carbon ring.
+- **Smart AI Eco-Scanner (BYOK):** Snap a photo of a grocery receipt or utility bill. Using your own Google Gemini API key securely stored in LocalStorage, the AI will automatically extract and calculate the carbon impact of those items.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ The Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router, TypeScript)
+- **PWA Engine:** `@ducanh2912/next-pwa`
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **State Management:** [Zustand](https://github.com/pmndrs/zustand) (with LocalStorage persist middleware)
+- **AI Integration:** Google Gemini SDK (`@google/genai`)
+- **Icons:** [Lucide React](https://lucide.dev/)
 
-## Learn More
+## 🏃‍♂️ Running Locally
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ashxris/ecotrack-ai-scanner.git
+   cd ecotrack-ai-scanner
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🧠 Architecture Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Zero-Backend Architecture:** To ensure ultimate user privacy and instant load times, all user data—including onboarding results, daily logs, and API keys—is saved entirely on the client-side within the browser's LocalStorage.
+- **Serverless API Proxy:** The AI Eco-Scanner utilizes a Next.js API route (`/api/scan`) as a proxy to communicate with the Gemini API, preventing client-side CORS errors while preserving the Bring-Your-Own-Key model.
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome! Feel free to check the issues page.
